@@ -1,0 +1,49 @@
+{
+  "name": "craftcms/simple-text",
+  "description": "This plugin adds a new “Simple Text” field type to Craft, which provides a textarea that’s optimized for entering documentation.",
+  "version": "2.0.0",
+  "type": "craft-plugin",
+  "keywords": [
+    "html",
+    "cms",
+    "craftcms",
+    "json",
+    "yii2"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Pixel & Tonic",
+      "homepage": "https://pixelandtonic.com/"
+    }
+  ],
+  "support": {
+    "email": "support@craftcms.com",
+    "issues": "https://github.com/craftcms/simple-text/issues?state=open",
+    "source": "https://github.com/craftcms/simple-text",
+    "docs": "https://github.com/craftcms/simple-text",
+    "rss": "https://github.com/craftcms/simple-text/commits/v2.atom"
+  },
+  "require": {
+    "craftcms/cms": "~3.0.0-beta.1",
+    "bower-asset/behave.js": "1.7.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "craft\\simpletext\\": "src/"
+    }
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ],
+  "extra": {
+    "name": "Simple Text",
+    "handle": "simpletext",
+    "schemaVersion": "1.0.2",
+    "changelogUrl": "https://raw.githubusercontent.com/craftcms/simple-text/v2/CHANGELOG.md",
+    "downloadUrl": "https://github.com/craftcms/simple-text/archive/v2.zip"
+  }
+}
