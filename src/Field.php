@@ -1,25 +1,32 @@
 <?php
+/**
+ * @link      https://craftcms.com/
+ * @copyright Copyright (c) Pixel & Tonic, Inc.
+ * @license   https://craftcms.com/license
+ */
+
 namespace craft\simpletext;
 
 use Craft;
 use yii\db\Schema;
 use craft\base\ElementInterface;
 
-
 /**
  * Simple Text field type
  */
 class Field extends \craft\base\Field
 {
+    /**
+     * @var int
+     */
     public $initialRows = 4;
-
 
     /**
      * @inheritdoc
      */
     public static function displayName(): string
     {
-        return Craft::t('simpletext', 'Simple Text');
+        return Craft::t('simple-text', 'Simple Text');
     }
 
     /**
@@ -37,22 +44,17 @@ class Field extends \craft\base\Field
      */
     public function getSettingsHtml()
     {
-
-        return Craft::$app->getView()->renderTemplateMacro('_includes/forms', 'textField', array(
-            array(
-                'label'  => Craft::t('simpletext', 'Initial Rows'),
+        return Craft::$app->getView()->renderTemplateMacro('_includes/forms', 'textField', [
+            [
+                'label'  => Craft::t('simple-text', 'Initial Rows'),
                 'id'     => 'initialRows',
                 'name'   => 'initialRows',
                 'value'  => $this->initialRows,
                 'size'   => 3,
                 'errors' => $this->getErrors('initialRows'),
-
-            )
-        ));
+            ]
+        ]);
     }
-
-
-
 
     /**
      * Returns the field's input HTML.
@@ -63,24 +65,23 @@ class Field extends \craft\base\Field
      * @return string
      * @internal param string $name
      */
-	public function getInputHtml($value, ElementInterface $element = null): string
-	{
-		$id = Craft::$app->getView()->formatInputId($this->handle);
-		$namespacedId = Craft::$app->getView()->namespaceInputId($id);
-
+    public function getInputHtml($value, ElementInterface $element = null): string
+    {
+        $id = Craft::$app->getView()->formatInputId($this->handle);
+        $namespacedId = Craft::$app->getView()->namespaceInputId($id);
 
         Craft::$app->getView()->registerAssetBundle(BehaveAsset::class);
         Craft::$app->getView()->registerJs("new Behave({ textarea: document.getElementById('{$namespacedId}') });");
 
-		return Craft::$app->getView()->renderTemplateMacro('_includes/forms', 'textarea', array(
-			array(
-				'id'    => $id,
-				'name'  => $this->handle,
-				'value' => $value,
-				'class' => 'nicetext fullwidth code',
-				'rows'  => $this->initialRows,
-			)
-		));
-	}
+        return Craft::$app->getView()->renderTemplateMacro('_includes/forms', 'textarea', [
+            [
+                'id'    => $id,
+                'name'  => $this->handle,
+                'value' => $value,
+                'class' => 'nicetext fullwidth code',
+                'rows'  => $this->initialRows,
+            ]
+        ]);
+    }
 
 }

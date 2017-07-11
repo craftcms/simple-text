@@ -1,13 +1,11 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: makeilalundy
- * Date: 6/20/17
- * Time: 10:58 AM
+ * @link      https://craftcms.com/
+ * @copyright Copyright (c) Pixel & Tonic, Inc.
+ * @license   https://craftcms.com/license
  */
 
 namespace craft\simpletext;
-
 
 use craft\web\AssetBundle;
 use craft\web\assets\cp\CpAsset;
@@ -30,10 +28,6 @@ class BehaveAsset extends AssetBundle
             'behave'.$this->dotJs(),
         ];
 
-
         parent::init();
     }
-
-
-
 }

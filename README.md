@@ -1,12 +1,17 @@
-Store Hours for Craft CMS
-===================
+# Simple Text plugin for Craft
+=================================
 
 This plugin adds a new “Simple Text” field type to Craft, which provides a textarea that’s optimized for entering documentation.
 
+## Textarea Features
+
+* Uses a fixed-width font
+* Automatically resizes
+* Uses [Behave.js](http://jakiestfu.github.io/Behave.js/)
+
 ## Requirements
 
-This plugin requires Craft CMS 3.0.0-beta.1 or later.
-
+This plugin requires Craft CMS 3.0.0-beta.20 or later.
 
 ## Installation
 
@@ -20,8 +25,6 @@ To install the plugin, follow these instructions.
 
         composer require craftcms/store-hours
 
-3. In the Control Panel, go to Settings → Plugins and click the “Install” button for Store Hours.
+3. In the Control Panel, go to Settings → Plugins and click the “Install” button for Simple Text.
 
-4. You can now create a Store Hours field type under Settings → Fields.
-
-
+4. You can now create a Simple Text field type under Settings → Fields.

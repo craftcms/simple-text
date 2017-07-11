@@ -7,7 +7,6 @@
     "html",
     "cms",
     "craftcms",
-    "json",
     "yii2"
   ],
   "license": "MIT",
@@ -25,7 +24,7 @@
     "rss": "https://github.com/craftcms/simple-text/commits/v2.atom"
   },
   "require": {
-    "craftcms/cms": "~3.0.0-beta.1",
+    "craftcms/cms": "~3.0.0-beta.20",
     "bower-asset/behave.js": "1.7.1"
   },
   "autoload": {
@@ -41,7 +40,7 @@
   ],
   "extra": {
     "name": "Simple Text",
-    "handle": "simpletext",
+    "handle": "simple-text",
     "schemaVersion": "1.0.2",
     "changelogUrl": "https://raw.githubusercontent.com/craftcms/simple-text/v2/CHANGELOG.md",
     "downloadUrl": "https://github.com/craftcms/simple-text/archive/v2.zip"
