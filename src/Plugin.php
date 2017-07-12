@@ -30,18 +30,4 @@ class Plugin extends \craft\base\Plugin
             $event->types[] = Field::class;
         });
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

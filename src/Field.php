@@ -63,7 +63,6 @@ class Field extends \craft\base\Field
      * @param ElementInterface|null $element
      *
      * @return string
-     * @internal param string $name
      */
     public function getInputHtml($value, ElementInterface $element = null): string
     {
