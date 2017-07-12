@@ -51,7 +51,7 @@ class SimpleTextPlugin extends BasePlugin
 	 */
 	public function getPluginUrl()
 	{
-		return 'https://github.com/pixelandtonic/SimpleText';
+		return 'https://github.com/craftcms/simple-text';
 	}
 
 	/**
@@ -59,7 +59,7 @@ class SimpleTextPlugin extends BasePlugin
 	 */
 	public function getDocumentationUrl()
 	{
-		return $this->getPluginUrl().'/blob/master/README.md';
+		return $this->getPluginUrl().'/blob/v1/README.md';
 	}
 
 	/**
@@ -67,6 +67,6 @@ class SimpleTextPlugin extends BasePlugin
 	 */
 	public function getReleaseFeedUrl()
 	{
-		return 'https://raw.githubusercontent.com/pixelandtonic/SimpleText/master/releases.json';
+		return 'https://raw.githubusercontent.com/craftcms/simple-text/v1/releases.json';
 	}
 }
