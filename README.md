@@ -1,5 +1,5 @@
-# Simple Text plugin for Craft
-=================================
+Simple Text plugin for Craft
+============================
 
 This plugin adds a new “Simple Text” field type to Craft, which provides a textarea that’s optimized for entering documentation.
 
