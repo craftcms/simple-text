@@ -8,8 +8,8 @@
 namespace craft\simpletext;
 
 use Craft;
-use yii\db\Schema;
 use craft\base\ElementInterface;
+use yii\db\Schema;
 
 /**
  * Simple Text field type
@@ -46,11 +46,11 @@ class Field extends \craft\base\Field
     {
         return Craft::$app->getView()->renderTemplateMacro('_includes/forms', 'textField', [
             [
-                'label'  => Craft::t('simple-text', 'Initial Rows'),
-                'id'     => 'initialRows',
-                'name'   => 'initialRows',
-                'value'  => $this->initialRows,
-                'size'   => 3,
+                'label' => Craft::t('simple-text', 'Initial Rows'),
+                'id' => 'initialRows',
+                'name' => 'initialRows',
+                'value' => $this->initialRows,
+                'size' => 3,
                 'errors' => $this->getErrors('initialRows'),
             ]
         ]);
@@ -74,11 +74,11 @@ class Field extends \craft\base\Field
 
         return Craft::$app->getView()->renderTemplateMacro('_includes/forms', 'textarea', [
             [
-                'id'    => $id,
-                'name'  => $this->handle,
+                'id' => $id,
+                'name' => $this->handle,
                 'value' => $value,
                 'class' => 'nicetext fullwidth code',
-                'rows'  => $this->initialRows,
+                'rows' => $this->initialRows,
             ]
         ]);
     }
