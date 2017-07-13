@@ -1,6 +1,11 @@
 Changelog
 =========
 
+## Unreleased
+
+### Added
+- Craft 3 compatibility.
+
 ## 1.1.0 - 2015-12-20
 
 ### Updated
