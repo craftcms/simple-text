@@ -32,12 +32,6 @@
       "craft\\simpletext\\": "src/"
     }
   },
-  "repositories": [
-    {
-      "type": "composer",
-      "url": "https://asset-packagist.org"
-    }
-  ],
   "extra": {
     "name": "Simple Text",
     "handle": "simple-text",
