@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "main": "gulpfile.js",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}

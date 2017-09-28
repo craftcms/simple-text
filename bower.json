@@ -1,0 +1,13 @@
+{
+  "name": "craftcms-simple-text",
+  "main": "gulpfile.js",
+  "authors": [
+    "Brandon Kelly <brandon@pixelandtonic.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/craftcms/simple-text",
+  "private": true,
+  "devDependencies": {
+    "behave.js": "^1.7.1"
+  }
+}

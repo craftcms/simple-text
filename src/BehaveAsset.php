@@ -15,7 +15,7 @@ class BehaveAsset extends AssetBundle
     public function init()
     {
         // define the path that your publishable resources live
-        $this->sourcePath = '@bower/behave.js';
+        $this->sourcePath = dirname(__DIR__).'/lib/behave.js';
 
         // define the dependencies
         $this->depends = [
