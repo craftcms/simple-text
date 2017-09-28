@@ -1,7 +1,7 @@
 {
   "name": "craftcms/simple-text",
   "description": "This plugin adds a new “Simple Text” field type to Craft, which provides a textarea that’s optimized for entering documentation.",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "type": "craft-plugin",
   "keywords": [
     "html",
