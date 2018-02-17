@@ -1,8 +1,8 @@
 <?php
 /**
- * @link      https://craftcms.com/
+ * @link https://craftcms.com/
  * @copyright Copyright (c) Pixel & Tonic, Inc.
- * @license   MIT
+ * @license MIT
  */
 
 namespace craft\simpletext;
@@ -59,9 +59,8 @@ class Field extends \craft\base\Field
     /**
      * Returns the field's input HTML.
      *
-     * @param mixed                 $value
+     * @param mixed $value
      * @param ElementInterface|null $element
-     *
      * @return string
      */
     public function getInputHtml($value, ElementInterface $element = null): string
