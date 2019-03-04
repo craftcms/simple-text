@@ -34,7 +34,6 @@
   "extra": {
     "name": "Simple Text",
     "handle": "simple-text",
-    "schemaVersion": "1.0.2",
     "documentationUrl": "https://github.com/craftcms/redactor/blob/v2/README.md"
   }
 }
