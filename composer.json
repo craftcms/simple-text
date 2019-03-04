@@ -20,7 +20,7 @@
     "email": "support@craftcms.com",
     "issues": "https://github.com/craftcms/simple-text/issues?state=open",
     "source": "https://github.com/craftcms/simple-text",
-    "docs": "https://github.com/craftcms/simple-text",
+    "docs": "https://github.com/craftcms/redactor/blob/v2/README.md",
     "rss": "https://github.com/craftcms/simple-text/commits/v2.atom"
   },
   "require": {
@@ -35,7 +35,6 @@
     "name": "Simple Text",
     "handle": "simple-text",
     "schemaVersion": "1.0.2",
-    "changelogUrl": "https://raw.githubusercontent.com/craftcms/simple-text/v2/CHANGELOG.md",
-    "downloadUrl": "https://github.com/craftcms/simple-text/archive/v2.zip"
+    "documentationUrl": "https://github.com/craftcms/redactor/blob/v2/README.md"
   }
 }
