@@ -4,9 +4,9 @@ This plugin adds a new “Simple Text” field type to Craft, which provides a t
 
 ## Textarea Features
 
-* Uses a fixed-width font
-* Automatically resizes
-* Uses [Behave.js](http://jakiestfu.github.io/Behave.js/)
+- Uses a fixed-width font
+- Automatically resizes
+- Uses [Behave.js](http://jakiestfu.github.io/Behave.js/)
 
 ## Requirements
 
@@ -18,7 +18,7 @@ You can install this plugin from the Plugin Store or with Composer.
 
 #### From the Plugin Store
 
-Go to the Plugin Store in your project’s Control Panel and search for “Simple Text”. Then click on the “Install” button in its modal window.
+Go to the Plugin Store in your project’s Control Panel and search for “Simple Text”. Then press **Install** in its modal window.
 
 #### With Composer
 
