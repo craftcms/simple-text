@@ -9,6 +9,7 @@ namespace craft\simpletext;
 
 use Craft;
 use craft\base\ElementInterface;
+use craft\helpers\Cp;
 use yii\db\Schema;
 
 /**
@@ -32,7 +33,7 @@ class Field extends \craft\base\Field
     /**
      * @inheritdoc
      */
-    public function getContentColumnType(): string
+    public function getContentColumnType(): array|string
     {
         return Schema::TYPE_TEXT;
     }
@@ -42,17 +43,15 @@ class Field extends \craft\base\Field
      *
      * @return string|null
      */
-    public function getSettingsHtml()
+    public function getSettingsHtml(): ?string
     {
-        return Craft::$app->getView()->renderTemplateMacro('_includes/forms', 'textField', [
-            [
-                'label' => Craft::t('simple-text', 'Initial Rows'),
-                'id' => 'initialRows',
-                'name' => 'initialRows',
-                'value' => $this->initialRows,
-                'size' => 3,
-                'errors' => $this->getErrors('initialRows'),
-            ],
+        return Cp::textFieldHtml([
+            'label' => Craft::t('simple-text', 'Initial Rows'),
+            'id' => 'initialRows',
+            'name' => 'initialRows',
+            'value' => $this->initialRows,
+            'size' => 3,
+            'errors' => $this->getErrors('initialRows'),
         ]);
     }
 
@@ -63,22 +62,20 @@ class Field extends \craft\base\Field
      * @param ElementInterface|null $element
      * @return string
      */
-    public function getInputHtml($value, ElementInterface $element = null): string
+    public function getInputHtml(mixed $value, ?\craft\base\ElementInterface $element = null): string
     {
-        $id = Craft::$app->getView()->formatInputId($this->handle);
+        $id = $this->getInputId();
         $namespacedId = Craft::$app->getView()->namespaceInputId($id);
 
         Craft::$app->getView()->registerAssetBundle(BehaveAsset::class);
         Craft::$app->getView()->registerJs("new Behave({ textarea: document.getElementById('{$namespacedId}') });");
 
-        return Craft::$app->getView()->renderTemplateMacro('_includes/forms', 'textarea', [
-            [
-                'id' => $id,
-                'name' => $this->handle,
-                'value' => $value,
-                'class' => 'nicetext fullwidth code',
-                'rows' => $this->initialRows,
-            ],
+        return Cp::textareaFieldHtml([
+            'id' => $id,
+            'name' => $this->handle,
+            'value' => $value,
+            'class' => 'nicetext fullwidth code',
+            'rows' => $this->initialRows,
         ]);
     }
 }

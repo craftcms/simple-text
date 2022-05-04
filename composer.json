@@ -1,7 +1,6 @@
 {
   "name": "craftcms/simple-text",
   "description": "This plugin adds a new “Simple Text” field type to Craft, which provides a textarea that’s optimized for entering documentation.",
-  "version": "2.0.2",
   "type": "craft-plugin",
   "keywords": [
     "html",
@@ -26,11 +25,12 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
-    "craftcms/cms": "^3.0.0-beta.20"
+    "craftcms/cms": "^4.0.0-RC3"
   },
   "require-dev": {
     "craftcms/ecs": "dev-main",
-    "craftcms/phpstan": "dev-main"
+    "craftcms/phpstan": "dev-main",
+    "craftcms/rector": "dev-main"
   },
   "autoload": {
     "psr-4": {
@@ -49,7 +49,7 @@
   },
   "config": {
     "platform": {
-      "php": "7.2.5"
+      "php": "8.0.2"
     },
     "allow-plugins": {
       "yiisoft/yii2-composer": true,
