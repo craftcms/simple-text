@@ -9,7 +9,6 @@ namespace craft\simpletext;
 
 use craft\events\RegisterComponentTypesEvent;
 use craft\services\Fields;
-use craft\simpletext\models\Settings;
 use yii\base\Event;
 
 /**

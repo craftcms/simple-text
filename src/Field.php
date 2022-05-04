@@ -52,7 +52,7 @@ class Field extends \craft\base\Field
                 'value' => $this->initialRows,
                 'size' => 3,
                 'errors' => $this->getErrors('initialRows'),
-            ]
+            ],
         ]);
     }
 
@@ -78,8 +78,7 @@ class Field extends \craft\base\Field
                 'value' => $value,
                 'class' => 'nicetext fullwidth code',
                 'rows' => $this->initialRows,
-            ]
+            ],
         ]);
     }
-
 }

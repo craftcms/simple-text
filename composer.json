@@ -23,17 +23,37 @@
     "docs": "https://github.com/craftcms/simple-text/blob/main/README.md",
     "rss": "https://github.com/craftcms/simple-text/commits/main.atom"
   },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "require": {
     "craftcms/cms": "^3.0.0-beta.20"
+  },
+  "require-dev": {
+    "craftcms/ecs": "dev-main",
+    "craftcms/phpstan": "dev-main"
   },
   "autoload": {
     "psr-4": {
       "craft\\simpletext\\": "src/"
     }
   },
+  "scripts": {
+    "check-cs": "ecs check --ansi",
+    "fix-cs": "ecs check --ansi --fix",
+    "phpstan": "phpstan --memory-limit=1G"
+  },
   "extra": {
     "name": "Simple Text",
     "handle": "simple-text",
     "documentationUrl": "https://github.com/craftcms/simple-text/blob/main/README.md"
+  },
+  "config": {
+    "platform": {
+      "php": "7.2.5"
+    },
+    "allow-plugins": {
+      "yiisoft/yii2-composer": true,
+      "craftcms/plugin-installer": true
+    }
   }
 }
