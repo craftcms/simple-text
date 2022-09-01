@@ -2,6 +2,14 @@
   "private": true,
   "main": "gulpfile.js",
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "^4.0.0"
+  },
+  "scripts": {
+    "prepublish": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
+  },
+  "snyk": true,
+  "dependencies": {
+    "@snyk/protect": "latest"
   }
 }
