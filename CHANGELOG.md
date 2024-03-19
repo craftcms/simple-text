@@ -1,5 +1,9 @@
 # Release Notes for Simple Text
 
+## Unreleased
+
+- Added Craft 5 compatibility.
+
 ## 3.0.0 - 2022-05-03
 
 ### Added
