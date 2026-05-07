@@ -10,7 +10,7 @@ This plugin adds a new “Simple Text” field type to Craft, which provides a t
 
 ## Requirements
 
-This plugin requires Craft CMS 4.0.0+ or 5.0.0+.
+This plugin requires Craft CMS 4.0.0+ or 5.0.0+ or 6.0.0-alpha.1+ with the `craftcms/yii2-adapter` package.
 
 ## Installation
 
