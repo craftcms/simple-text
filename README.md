@@ -6,6 +6,14 @@ This plugin adds a new “Simple Text” field type to Craft, which provides a t
 
 - Uses a fixed-width font
 - Automatically resizes
+- Uses [Behave.js](https://github.com/iamso/Behave.js) to close brackets and quotes, indent new lines inside brackets, and continue lists when you press <kbd>Enter</kbd>
+
+### Indenting
+
+Indenting works the same way as in Craft’s Markdown fields, so you can still leave the field with the keyboard:
+
+- <kbd>Tab</kbd> and <kbd>Shift</kbd>+<kbd>Tab</kbd> indent and outdent the selected lines. With nothing selected, they move focus to the next or previous control.
+- <kbd>Ctrl</kbd>/<kbd>Cmd</kbd>+<kbd>]</kbd> and <kbd>Ctrl</kbd>/<kbd>Cmd</kbd>+<kbd>[</kbd> indent and outdent the current line or the selected lines.
 
 ## Requirements
 

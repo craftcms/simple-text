@@ -25,7 +25,7 @@ Field settings and saved values are kept, and templates keep working without cha
 | --- | --- |
 | `craft\simpletext\Plugin` | `CraftCms\SimpleText\Plugin` |
 | `craft\simpletext\Field` | `CraftCms\SimpleText\Field` |
-| `craft\simpletext\BehaveAsset` | Removed. The field uses Craft’s own textarea. |
+| `craft\simpletext\BehaveAsset` | Removed. Behave.js is loaded by the plugin’s control panel script. |
 
 Update any code that refers to the old class names, such as type checks:
 
@@ -43,10 +43,11 @@ if ($field instanceof \CraftCms\SimpleText\Field) {
 
 ### Field input
 
-The field input is now Craft’s monospaced textarea, which grows as you type. Behave.js was removed, so:
+The field input is now Craft’s monospaced textarea, which grows as you type. Behave.js still closes brackets and quotes, indents new lines inside brackets and continues lists, but <kbd>Tab</kbd> works the way it does in Craft’s Markdown fields, so keyboard users can leave the field:
 
-- Pressing <kbd>Tab</kbd> moves focus to the next control instead of inserting an indent. Paste or type spaces to indent. Tabs in saved values are kept.
-- Brackets and quotes are no longer closed automatically.
+- With nothing selected, <kbd>Tab</kbd> and <kbd>Shift</kbd>+<kbd>Tab</kbd> move focus to the next or previous control instead of inserting or removing an indent.
+- With text selected, <kbd>Tab</kbd> and <kbd>Shift</kbd>+<kbd>Tab</kbd> indent and outdent the selected lines, as before.
+- <kbd>Ctrl</kbd>/<kbd>Cmd</kbd>+<kbd>]</kbd> and <kbd>Ctrl</kbd>/<kbd>Cmd</kbd>+<kbd>[</kbd> indent and outdent the current line or the selected lines.
 
 ### Field settings
 

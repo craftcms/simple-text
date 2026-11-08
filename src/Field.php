@@ -8,16 +8,16 @@ use CraftCms\Cms\Field\Field as BaseField;
 use CraftCms\Cms\Field\FieldContext;
 use CraftCms\Cms\Ui\Contracts\Control;
 use CraftCms\Cms\Ui\Controls\Number;
-use CraftCms\Cms\Ui\Controls\Textarea;
 use CraftCms\Cms\Ui\Nodes\Field as UiField;
 use CraftCms\Cms\Ui\Ui;
 use CraftCms\Cms\Ui\UiContext;
+use CraftCms\SimpleText\Ui\Controls\SimpleTextarea;
 use Override;
 
 use function CraftCms\Cms\t;
 
 /**
- * Simple Text field type: a monospaced, auto-growing textarea that saves exactly what was typed.
+ * Simple Text field type: a monospaced, auto-growing textarea with Behave.js editing.
  */
 class Field extends BaseField
 {
@@ -59,7 +59,7 @@ class Field extends BaseField
     #[Override]
     public function uiControl(FieldContext $context): Control
     {
-        return Textarea::make($context->path)
+        return SimpleTextarea::make($context->path)
             ->value($context->value)
             ->rows($this->initialRows)
             ->monospace();

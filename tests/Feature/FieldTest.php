@@ -32,15 +32,17 @@ it('saves values without trimming or reformatting them', function () {
     expect($saved->getFieldValue('docs'))->toBe($value);
 });
 
-it('renders a monospaced textarea with the initial rows', function () {
+it('renders a monospaced Behave.js textarea with the initial rows', function () {
     $field = new Field(['handle' => 'docs', 'uid' => 'field-docs', 'initialRows' => 7]);
     $layout = FieldLayout::make(Entry::class)
         ->tab('Content', fn (FieldLayoutTab $tab) => $tab->add(new CustomField($field, ['uid' => 'layout-docs'])));
 
-    $html = app(UiHtmlRenderer::class)->render(app(FieldLayoutCompiler::class)->compile($layout));
-    $textarea = new Crawler($html)->filter('craft-textarea');
+    $payload = app(FieldLayoutCompiler::class)->compile($layout);
+    $textarea = new Crawler(app(UiHtmlRenderer::class)->render($payload))->filter('craft-textarea');
 
-    expect($textarea)->toHaveCount(1)
+    // The component that resources/js/simple-text.js registers
+    expect($payload->nodes[0]->control?->component)->toBe('simple-text:textarea')
+        ->and($textarea)->toHaveCount(1)
         ->and($textarea->attr('monospace'))->not->toBeNull()
         ->and($textarea->filter('textarea')->attr('rows'))->toBe('7');
 });

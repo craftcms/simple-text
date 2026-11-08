@@ -4,8 +4,8 @@
 
 - Simple Text now requires Craft CMS 6.0 or later and PHP 8.5 or later, and runs natively on Craft 6 without the `craftcms/yii2-adapter` package.
 - The plugin’s classes moved to the `CraftCms\SimpleText` namespace. Existing Simple Text fields are updated when you run `php artisan craft:up`. See [UPGRADE.md](UPGRADE.md).
-- The field input is now Craft’s own monospaced textarea, which grows as you type.
-- Removed Behave.js. Pressing <kbd>Tab</kbd> in the field now moves focus to the next control instead of inserting an indent, and brackets and quotes are no longer closed automatically.
+- The field input is now Craft’s own monospaced textarea, which grows as you type, with Behave.js editing on top.
+- With nothing selected, pressing <kbd>Tab</kbd> in the field now moves focus to the next control instead of inserting an indent. <kbd>Tab</kbd> and <kbd>Shift</kbd>+<kbd>Tab</kbd> still indent and outdent selected lines, and <kbd>Ctrl</kbd>/<kbd>Cmd</kbd>+<kbd>]</kbd> and <kbd>Ctrl</kbd>/<kbd>Cmd</kbd>+<kbd>[</kbd> indent and outdent the current line.
 - The “Initial Rows” setting must now be a whole number of 1 or more.
 
 ## 3.1.0 - 2024-03-19
