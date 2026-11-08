@@ -6,7 +6,7 @@
     "html",
     "cms",
     "craftcms",
-    "yii2"
+    "laravel"
   ],
   "license": "MIT",
   "authors": [
@@ -19,41 +19,54 @@
     "email": "support@craftcms.com",
     "issues": "https://github.com/craftcms/simple-text/issues?state=open",
     "source": "https://github.com/craftcms/simple-text",
-    "docs": "https://github.com/craftcms/simple-text/blob/main/README.md",
-    "rss": "https://github.com/craftcms/simple-text/commits/main.atom"
+    "docs": "https://github.com/craftcms/simple-text/blob/4.x/README.md",
+    "rss": "https://github.com/craftcms/simple-text/commits/4.x.atom"
   },
-  "minimum-stability": "dev",
-  "prefer-stable": true,
   "require": {
-    "craftcms/cms": "^4.0.0-RC3|^5.0.0-beta.1"
+    "php": "^8.5",
+    "craftcms/cms": "^6.0.0"
   },
   "require-dev": {
-    "craftcms/ecs": "dev-main",
-    "craftcms/phpstan": "dev-main",
-    "craftcms/rector": "dev-main"
+    "larastan/larastan": "^3.13",
+    "laravel/pint": "^1.22",
+    "orchestra/testbench": "^11.0",
+    "pestphp/pest": "^5.0",
+    "pestphp/pest-plugin-laravel": "^5.0",
+    "phpstan/phpstan": "^2.1"
   },
   "autoload": {
     "psr-4": {
-      "craft\\simpletext\\": "src/"
+      "CraftCms\\SimpleText\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "CraftCms\\SimpleText\\Tests\\": "tests/",
+      "CraftCms\\Cms\\Database\\Factories\\": "vendor/craftcms/cms/database/Factories/"
     }
   },
   "scripts": {
-    "check-cs": "ecs check --ansi",
-    "fix-cs": "ecs check --ansi --fix",
-    "phpstan": "phpstan --memory-limit=1G"
+    "check-cs": "pint --test",
+    "fix-cs": "pint",
+    "phpstan": "phpstan --memory-limit=1G",
+    "test": "pest"
   },
   "extra": {
+    "class": "CraftCms\\SimpleText\\Plugin",
     "name": "Simple Text",
     "handle": "simple-text",
-    "documentationUrl": "https://github.com/craftcms/simple-text/blob/main/README.md"
+    "description": "A textarea that’s optimized for entering documentation",
+    "documentationUrl": "https://github.com/craftcms/simple-text/blob/4.x/README.md"
   },
   "config": {
     "platform": {
-      "php": "8.0.2"
+      "php": "8.5"
     },
     "allow-plugins": {
-      "yiisoft/yii2-composer": true,
-      "craftcms/plugin-installer": true
+      "craftcms/plugin-installer": true,
+      "pestphp/pest-plugin": true
     }
-  }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }

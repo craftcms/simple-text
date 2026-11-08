@@ -1,81 +1,67 @@
 <?php
+
+declare(strict_types=1);
+
+namespace CraftCms\SimpleText;
+
+use CraftCms\Cms\Field\Field as BaseField;
+use CraftCms\Cms\Field\FieldContext;
+use CraftCms\Cms\Ui\Contracts\Control;
+use CraftCms\Cms\Ui\Controls\Number;
+use CraftCms\Cms\Ui\Controls\Textarea;
+use CraftCms\Cms\Ui\Nodes\Field as UiField;
+use CraftCms\Cms\Ui\Ui;
+use CraftCms\Cms\Ui\UiContext;
+use Override;
+
+use function CraftCms\Cms\t;
+
 /**
- * @link https://craftcms.com/
- * @copyright Copyright (c) Pixel & Tonic, Inc.
- * @license MIT
+ * Simple Text field type: a monospaced, auto-growing textarea that saves exactly what was typed.
  */
-
-namespace craft\simpletext;
-
-use Craft;
-use craft\base\ElementInterface;
-use craft\helpers\Cp;
-use yii\db\Schema;
-
-/**
- * Simple Text field type
- */
-class Field extends \craft\base\Field
+class Field extends BaseField
 {
-    /**
-     * @var int
-     */
-    public $initialRows = 4;
+    /** The number of rows the textarea shows before it grows. */
+    public int $initialRows = 4;
 
-    /**
-     * @inheritdoc
-     */
+    #[Override]
     public static function displayName(): string
     {
-        return Craft::t('simple-text', 'Simple Text');
+        return t('Simple Text', category: 'simple-text');
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function getContentColumnType(): array|string
+    #[Override]
+    public static function phpType(): string
     {
-        return Schema::TYPE_TEXT;
+        return 'string|null';
     }
 
-    /**
-     * Returns the field's settings HTML.
-     *
-     * @return string|null
-     */
-    public function getSettingsHtml(): ?string
+    #[Override]
+    public function getRules(): array
     {
-        return Cp::textFieldHtml([
-            'label' => Craft::t('simple-text', 'Initial Rows'),
-            'id' => 'initialRows',
-            'name' => 'initialRows',
-            'value' => $this->initialRows,
-            'size' => 3,
-            'errors' => $this->getErrors('initialRows'),
+        return array_merge(parent::getRules(), [
+            'initialRows' => ['required', 'integer', 'min:1'],
         ]);
     }
 
-    /**
-     * Returns the field's input HTML.
-     *
-     * @param mixed $value
-     * @param ElementInterface|null $element
-     * @return string
-     */
-    public function getInputHtml(mixed $value, ?\craft\base\ElementInterface $element = null): string
+    #[Override]
+    public function settingsUi(UiContext $context = new UiContext): Ui
     {
-        $id = $this->getInputId();
-        $namespacedId = Craft::$app->getView()->namespaceInputId($id);
-
-        Craft::$app->getView()->registerAssetBundle(BehaveAsset::class);
-        Craft::$app->getView()->registerJs("new Behave({ textarea: document.getElementById('{$namespacedId}') });");
-
-        return Cp::textareaFieldHtml([
-            'id' => $id,
-            'name' => $this->handle,
-            'value' => $value,
-            'class' => 'nicetext fullwidth code',
-            'rows' => $this->initialRows,
+        return Ui::make([
+            UiField::make(t('Initial Rows', category: 'simple-text'))
+                ->control(Number::make('initialRows')
+                    ->value($this->initialRows)
+                    ->min(1)
+                    ->size(3)),
         ]);
+    }
+
+    #[Override]
+    public function uiControl(FieldContext $context): Control
+    {
+        return Textarea::make($context->path)
+            ->value($context->value)
+            ->rows($this->initialRows)
+            ->monospace();
     }
 }

@@ -6,11 +6,12 @@ This plugin adds a new “Simple Text” field type to Craft, which provides a t
 
 - Uses a fixed-width font
 - Automatically resizes
-- Uses [Behave.js](http://jakiestfu.github.io/Behave.js/)
 
 ## Requirements
 
-This plugin requires Craft CMS 4.0.0+ or 5.0.0+.
+This plugin requires Craft CMS 6.0 or later and PHP 8.5 or later.
+
+For Craft 4 and 5, use Simple Text 3.x. If you’re upgrading from Simple Text 3.x, see [UPGRADE.md](UPGRADE.md).
 
 ## Installation
 
@@ -32,5 +33,5 @@ cd /path/to/my-project.test
 composer require craftcms/simple-text
 
 # tell Craft to install the plugin
-./craft install/plugin simple-text
+php artisan craft:plugin:install simple-text
 ```

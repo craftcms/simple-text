@@ -1,40 +1,21 @@
 <?php
-/**
- * @link https://craftcms.com/
- * @copyright Copyright (c) Pixel & Tonic, Inc.
- * @license MIT
- */
 
-namespace craft\simpletext;
+declare(strict_types=1);
 
-use craft\events\RegisterComponentTypesEvent;
-use craft\services\Fields;
-use yii\base\Event;
+namespace CraftCms\SimpleText;
+
+use CraftCms\Cms\Plugin\Plugin as BasePlugin;
 
 /**
  * Simple Text plugin
  */
-class Plugin extends \craft\base\Plugin
+class Plugin extends BasePlugin
 {
-    /**
-     * @inheritdoc
-     */
-    public string $schemaVersion = '1.0.2';
+    public string $schemaVersion = '2.0.0';
 
-    /**
-     * @inheritdoc
-     */
-    public function init()
-    {
-        parent::init();
+    public string $minVersionRequired = '3.1.0';
 
-        // Register our field type.
-        Event::on(
-            Fields::class,
-            Fields::EVENT_REGISTER_FIELD_TYPES,
-            function(RegisterComponentTypesEvent $event) {
-                $event->types[] = Field::class;
-            }
-        );
-    }
+    protected array $fieldTypes = [
+        Field::class,
+    ];
 }
