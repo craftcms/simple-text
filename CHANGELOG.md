@@ -1,5 +1,9 @@
 # Release Notes for Simple Text
 
+## 3.2.1 - 2026-11-10
+
+- Simple Text now suggests the `craftcms/yii2-adapter` package, so the Plugin Store installs it alongside the plugin on Craft 6.
+
 ## 3.2.0 - 2026-11-10
 
 - Added Craft 6 compatibility. Craft 6 sites need the `craftcms/yii2-adapter` package.
