@@ -11,14 +11,15 @@
 (() => {
   const INDENT = '    ';
 
-  // Behave.js changes the value without an `input` event, which the textarea needs to see the change.
-  window.BehaveHooks.add(
-    ['enter:after', 'delete:after', 'openChar:after'],
-    ({editor}) => notifyInput(editor.element)
-  );
-
-  function notifyInput(textarea) {
-    textarea.dispatchEvent(new Event('input', {bubbles: true}));
+  /**
+   * Behave.js and the indent keys cancel the key and change the value themselves, without an `input`
+   * event, which the textarea needs to see the change. (Behave’s hooks miss some changes, such as
+   * Backspace deleting an empty pair of brackets.) Listens after them.
+   */
+  function notifyHandledKey(event) {
+    if (event.defaultPrevented) {
+      event.currentTarget.dispatchEvent(new Event('input', {bubbles: true}));
+    }
   }
 
   /** Indents or outdents every line touched by the selection, or the line with the caret. */
@@ -61,7 +62,6 @@
       newStart,
       start === end ? newStart : end + totalChange
     );
-    notifyInput(textarea);
   }
 
   function onKeydown(event) {
@@ -118,6 +118,8 @@
           function detach() {
             behave?.destroy();
             textarea?.removeEventListener('keydown', onKeydown);
+            textarea?.removeEventListener('keydown', notifyHandledKey);
+            textarea?.removeEventListener('keypress', notifyHandledKey);
             behave = textarea = null;
           }
 
@@ -139,6 +141,8 @@
               textarea = element;
               textarea.addEventListener('keydown', onKeydown);
               behave = new window.Behave({textarea, replaceTab: false});
+              textarea.addEventListener('keydown', notifyHandledKey);
+              textarea.addEventListener('keypress', notifyHandledKey);
             }
           }
 
