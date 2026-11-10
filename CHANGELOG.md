@@ -1,5 +1,9 @@
 # Release Notes for Simple Text
 
+## Unreleased
+
+- Added Craft 6 compatibility. Craft 6 sites need the `craftcms/yii2-adapter` package.
+
 ## 3.1.0 - 2024-03-19
 
 - Added Craft 5 compatibility.

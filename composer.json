@@ -19,13 +19,13 @@
     "email": "support@craftcms.com",
     "issues": "https://github.com/craftcms/simple-text/issues?state=open",
     "source": "https://github.com/craftcms/simple-text",
-    "docs": "https://github.com/craftcms/simple-text/blob/main/README.md",
-    "rss": "https://github.com/craftcms/simple-text/commits/main.atom"
+    "docs": "https://github.com/craftcms/simple-text/blob/3.x/README.md",
+    "rss": "https://github.com/craftcms/simple-text/commits/3.x.atom"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
-    "craftcms/cms": "^4.0.0-RC3|^5.0.0-beta.1"
+    "craftcms/cms": "^4.0.0-RC3|^5.0.0-beta.1|^6.0.0-beta.1"
   },
   "require-dev": {
     "craftcms/ecs": "dev-main",
@@ -45,7 +45,7 @@
   "extra": {
     "name": "Simple Text",
     "handle": "simple-text",
-    "documentationUrl": "https://github.com/craftcms/simple-text/blob/main/README.md"
+    "documentationUrl": "https://github.com/craftcms/simple-text/blob/3.x/README.md"
   },
   "config": {
     "platform": {
