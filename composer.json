@@ -34,9 +34,6 @@
     "pestphp/pest-plugin-laravel": "^5.0",
     "phpstan/phpstan": "^2.1"
   },
-  "suggest": {
-    "craftcms/yii2-adapter": "Required to use this plugin with Craft CMS 6"
-  },
   "autoload": {
     "psr-4": {
       "CraftCms\\SimpleText\\": "src/"
