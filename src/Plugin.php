@@ -1,40 +1,33 @@
 <?php
-/**
- * @link https://craftcms.com/
- * @copyright Copyright (c) Pixel & Tonic, Inc.
- * @license MIT
- */
 
-namespace craft\simpletext;
+declare(strict_types=1);
 
-use craft\events\RegisterComponentTypesEvent;
-use craft\services\Fields;
-use yii\base\Event;
+namespace CraftCms\SimpleText;
+
+use CraftCms\Cms\Plugin\Plugin as BasePlugin;
+use CraftCms\Cms\Ui\UiControlTypes;
+use CraftCms\SimpleText\Ui\Controls\SimpleTextarea;
 
 /**
  * Simple Text plugin
  */
-class Plugin extends \craft\base\Plugin
+class Plugin extends BasePlugin
 {
-    /**
-     * @inheritdoc
-     */
-    public string $schemaVersion = '1.0.2';
+    public string $schemaVersion = '2.0.0';
 
-    /**
-     * @inheritdoc
-     */
-    public function init()
+    public string $minVersionRequired = '3.1.0';
+
+    protected array $fieldTypes = [
+        Field::class,
+    ];
+
+    protected array $scripts = [
+        __DIR__.'/../resources/js/behave.min.js' => 'behave.min.js',
+        __DIR__.'/../resources/js/simple-text.js' => 'simple-text.js',
+    ];
+
+    public function boot(UiControlTypes $controlTypes): void
     {
-        parent::init();
-
-        // Register our field type.
-        Event::on(
-            Fields::class,
-            Fields::EVENT_REGISTER_FIELD_TYPES,
-            function(RegisterComponentTypesEvent $event) {
-                $event->types[] = Field::class;
-            }
-        );
+        $controlTypes->register(SimpleTextarea::class);
     }
 }
