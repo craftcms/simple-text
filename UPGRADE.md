@@ -13,7 +13,8 @@ Simple Text 4.0 is a native Craft 6 plugin. This guide lists what changed from 3
 1. Upgrade your project to Craft 6 first.
 2. Update the plugin: `composer require craftcms/simple-text:^4.0`.
 3. Run `php artisan craft:up`. This points your existing Simple Text fields at the new field class, in the database and in project config.
-4. If you use project config, commit the updated YAML files.
+4. Publish the plugin’s control panel scripts: `php artisan vendor:publish --tag=simple-text --force`. Craft only publishes them when a plugin is installed or enabled, so without this step Simple Text fields fail to load with a “component is not registered” error. Run it in every environment, and again after each Simple Text update.
+5. If you use project config, commit the updated YAML files.
 
 Field settings and saved values are kept, and templates keep working without changes: `{{ entry.myField }}` still outputs the saved text as a string.
 
