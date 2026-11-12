@@ -1,6 +1,6 @@
 # Release Notes for Simple Text
 
-## Unreleased
+## 4.0.0 - 2026-11-12
 
 - Simple Text now requires Craft CMS 6.0 or later and PHP 8.5 or later, and runs natively on Craft 6 without the `craftcms/yii2-adapter` package.
 - The plugin’s classes moved to the `CraftCms\SimpleText` namespace. Existing Simple Text fields are updated when you run `php artisan craft:up`. See [UPGRADE.md](UPGRADE.md).
