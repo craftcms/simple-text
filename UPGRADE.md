@@ -51,7 +51,7 @@ The field input is now Craft’s monospaced textarea, which grows as you type. B
 
 ### Field settings
 
-“Initial Rows” must now be a whole number of 1 or more. Saving a field with any other value shows a validation error.
+“Initial Rows” must now be 1 or more. Saving a field with a lower value, or an empty one, shows a validation error. Decimals are rounded down, as with Craft’s other whole-number settings.
 
 ## Need help?
 
